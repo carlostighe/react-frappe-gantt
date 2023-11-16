@@ -1,67 +1,83 @@
-import React, { Component, createRef } from "react";
+import React, { useEffect, useRef } from "react";
+
 import Gantt from "frappe-gantt";
 import Task from "../lib/Task.js";
 
-export default class FrappeGantt extends Component {
-  constructor(props) {
-    super(props);
-    this._target = createRef();
-    this._svg = createRef();
-    this._gantt = null;
+function FrappeGantt({
+  tasks: propsTasks,
+  viewMode: propsViewMode,
+  onClick,
+  onViewChange,
+  onProgressChange,
+  onDateChange,
+  onTasksChange,
+}) {
+  const targetRef = useRef(null);
+  const svgRef = useRef(null);
+  const ganttRef = useRef(null);
 
-    this.state = {
-      viewMode: null,
-      tasks: [],
-    };
-  }
+  const [viewMode, setViewMode] = React.useState(null);
+  const [tasks, setTasks] = React.useState([]);
 
-  static getDerivedStateFromProps(nextProps) {
-    return {
-      viewMode: nextProps.viewMode,
-      tasks: nextProps.tasks.map((t) => new Task(t)),
-    };
-  }
+  useEffect(() => {
+    setViewMode(propsViewMode);
+    setTasks(propsTasks.map((t) => new Task(t)));
+  }, [propsTasks, propsViewMode]);
 
-  componentDidUpdate() {
-    if (this._gantt) {
-      this._gantt.refresh(this.state.tasks);
-      this._gantt.change_view_mode(this.state.viewMode);
+  useEffect(() => {
+    if (ganttRef.current) {
+      ganttRef.current.refresh(tasks);
+      ganttRef.current.change_view_mode(viewMode);
     }
-  }
+  }, [tasks, viewMode]);
 
-  componentDidMount() {
-    this._gantt = new Gantt(this._svg.current, this.state.tasks, {
-      on_click: this.props.onClick,
-      on_view_change: this.props.onViewChange,
+  useEffect(() => {
+    ganttRef.current = new Gantt(svgRef.current, tasks, {
+      on_click: onClick,
+      on_view_change: onViewChange,
       on_progress_change: (task, progress) => {
-        this.props.onProgressChange(task, progress);
-        this.props.onTasksChange(this.props.tasks);
+        onProgressChange(task, progress);
+        onTasksChange(propsTasks);
       },
       on_date_change: (task, start, end) => {
-        this.props.onDateChange(task, start, end);
-        this.props.onTasksChange(this.props.tasks);
+        onDateChange(task, start, end);
+        onTasksChange(propsTasks);
       },
     });
 
-    if (this._gantt) {
-      this._gantt.change_view_mode(this.state.viewMode);
+    if (ganttRef.current) {
+      ganttRef.current.change_view_mode(viewMode);
     }
 
-    const midOfSvg = this._svg.current.clientWidth * 0.5;
-    this._target.current.scrollLeft = midOfSvg;
-  }
+    const midOfSvg = svgRef.current.clientWidth * 0.5;
+    targetRef.current.scrollLeft = midOfSvg;
 
-  render() {
-    return (
-      <div ref={this._target}>
-        <svg
-          ref={this._svg}
-          width="100%"
-          height="100%"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlnsXlink="http://www.w3.org/1999/xlink"
-        />
-      </div>
-    );
-  }
+    return () => {
+      if (ganttRef.current) {
+        // Cleanup Gantt instance if needed
+      }
+    };
+  }, [
+    propsTasks,
+    viewMode,
+    onTasksChange,
+    onDateChange,
+    onProgressChange,
+    onClick,
+    onViewChange,
+  ]);
+
+  return (
+    <div ref={targetRef}>
+      <svg
+        ref={svgRef}
+        width="100%"
+        height="100%"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+      />
+    </div>
+  );
 }
+
+export default FrappeGantt;

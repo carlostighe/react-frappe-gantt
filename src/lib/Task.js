@@ -20,10 +20,12 @@ export default class Task {
       : value.split(",").map((d) => d.trim());
   }
   set dependencies(value) {
-    this._dependencies = Array.isArray(value) ? value : value
-      .split(",")
-      .map((t) => t.trim())
-      .filter(Boolean);
+    this._dependencies = Array.isArray(value)
+      ? value
+      : value
+          .split(",")
+          .map((t) => t.trim())
+          .filter(Boolean);
   }
   get dependencies() {
     return this._dependencies;
