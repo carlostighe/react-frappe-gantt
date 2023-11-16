@@ -1299,10 +1299,9 @@
   dependencies:
     "to-regex-range" "^5.0.1"
 
-"frappe-gantt@0.5.0":
-  "integrity" "sha512-RAskVuBmnTcPJXh87oVhYmnNGy/9lvZlLHGui8QFB8yRBuUjzpZoZfZ+hKmDtBDmWNrE2/LRta06W5WmhTzzWQ=="
-  "resolved" "https://registry.npmjs.org/frappe-gantt/-/frappe-gantt-0.5.0.tgz"
-  "version" "0.5.0"
+"frappe-gantt@github:frappe/gantt":
+  "resolved" "git+ssh://git@github.com/frappe/gantt.git#1d024dcb55d3a150ca8c819985067f9a69ae80ba"
+  "version" "0.6.1"
 
 "function-bind@^1.1.1":
   "integrity" "sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A=="

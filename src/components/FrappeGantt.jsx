@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 import Gantt from "frappe-gantt";
 import Task from "../lib/Task.js";
 
-function FrappeGantt({
+const FrappeGantt = ({
   tasks: propsTasks,
   viewMode: propsViewMode,
   onClick,
@@ -11,7 +11,7 @@ function FrappeGantt({
   onProgressChange,
   onDateChange,
   onTasksChange,
-}) {
+}) => {
   const targetRef = useRef(null);
   const svgRef = useRef(null);
   const ganttRef = useRef(null);
@@ -78,6 +78,6 @@ function FrappeGantt({
       />
     </div>
   );
-}
+};
 
 export default FrappeGantt;
