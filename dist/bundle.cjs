@@ -13,7 +13,6 @@ function _classCallCheck(instance, Constructor) {
     throw new TypeError("Cannot call a class as a function");
   }
 }
-
 function _defineProperties(target, props) {
   for (var i = 0; i < props.length; i++) {
     var descriptor = props[i];
@@ -23,90 +22,55 @@ function _defineProperties(target, props) {
     Object.defineProperty(target, descriptor.key, descriptor);
   }
 }
-
 function _createClass(Constructor, protoProps, staticProps) {
   if (protoProps) _defineProperties(Constructor.prototype, protoProps);
   if (staticProps) _defineProperties(Constructor, staticProps);
   return Constructor;
 }
-
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) _setPrototypeOf(subClass, superClass);
+function _slicedToArray(arr, i) {
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
 }
-
-function _getPrototypeOf(o) {
-  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf(o);
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
 }
-
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf(o, p);
-}
-
-function _isNativeReflectConstruct() {
-  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
-  if (Reflect.construct.sham) return false;
-  if (typeof Proxy === "function") return true;
-
+function _iterableToArrayLimit(arr, i) {
+  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _e = undefined;
   try {
-    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
-
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (typeof call === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return _assertThisInitialized(self);
-}
-
-function _createSuper(Derived) {
-  var hasNativeReflectConstruct = _isNativeReflectConstruct();
-
-  return function _createSuperInternal() {
-    var Super = _getPrototypeOf(Derived),
-        result;
-
-    if (hasNativeReflectConstruct) {
-      var NewTarget = _getPrototypeOf(this).constructor;
-
-      result = Reflect.construct(Super, arguments, NewTarget);
-    } else {
-      result = Super.apply(this, arguments);
+    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+      if (i && _arr.length === i) break;
     }
-
-    return _possibleConstructorReturn(this, result);
-  };
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+  return _arr;
+}
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+  return arr2;
+}
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 
 const YEAR = 'year';
@@ -1164,7 +1128,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z = ".gantt .grid-background{fill:none}.gantt .grid-header{fill:#fff;stroke:#e0e0e0;stroke-width:1.4}.gantt .grid-row{fill:#fff}.gantt .grid-row:nth-child(2n){fill:#f5f5f5}.gantt .row-line{stroke:#ebeff2}.gantt .tick{stroke:#e0e0e0;stroke-width:.2}.gantt .tick.thick{stroke-width:.4}.gantt .today-highlight{fill:#fcf8e3;opacity:.5}.gantt .arrow{fill:none;stroke:#666;stroke-width:1.4}.gantt .bar{fill:#b8c2cc;stroke:#8d99a6;stroke-width:0;transition:stroke-width .3s ease;user-select:none}.gantt .bar-progress{fill:#a3a3ff}.gantt .bar-invalid{fill:transparent;stroke:#8d99a6;stroke-width:1;stroke-dasharray:5}.gantt .bar-invalid~.bar-label{fill:#555}.gantt .bar-label{fill:#fff;dominant-baseline:central;text-anchor:middle;font-size:12px;font-weight:lighter}.gantt .bar-label.big{fill:#555;text-anchor:start}.gantt .handle{fill:#ddd;cursor:ew-resize;opacity:0;visibility:hidden;transition:opacity .3s ease}.gantt .bar-wrapper{cursor:pointer;outline:none}.gantt .bar-wrapper:hover .bar{fill:#a9b5c1}.gantt .bar-wrapper:hover .bar-progress{fill:#8a8aff}.gantt .bar-wrapper:hover .handle{visibility:visible;opacity:1}.gantt .bar-wrapper.active .bar{fill:#a9b5c1}.gantt .bar-wrapper.active .bar-progress{fill:#8a8aff}.gantt .lower-text,.gantt .upper-text{font-size:12px;text-anchor:middle}.gantt .upper-text{fill:#555}.gantt .lower-text{fill:#333}.gantt .hide{display:none}.gantt-container{position:relative;overflow:auto;font-size:12px}.gantt-container .popup-wrapper{position:absolute;top:0;left:0;background:rgba(0,0,0,.8);padding:0;color:#959da5;border-radius:3px}.gantt-container .popup-wrapper .title{border-bottom:3px solid #a3a3ff;padding:10px}.gantt-container .popup-wrapper .subtitle{padding:10px;color:#dfe2e5}.gantt-container .popup-wrapper .pointer{position:absolute;height:5px;margin:0 0 0 -5px;border:5px solid transparent;border-top-color:rgba(0,0,0,.8)}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm5vZGVfbW9kdWxlcy9mcmFwcGUtZ2FudHQvc3JjL2dhbnR0LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBWUEsd0JBRUUsU0FBVSxDQUZaLG9CQUtFLFNBQWEsQ0FDYixjQWhCb0IsQ0FpQnBCLGdCQUFpQixDQVBuQixpQkFVRSxTQUFhLENBVmYsK0JBYUUsWUF0QmdCLENBU2xCLGlCQWdCRSxjQXhCMEIsQ0FRNUIsYUFtQkUsY0E3Qm9CLENBOEJwQixlQUFpQixDQXBCbkIsbUJBc0JHLGVBQWlCLENBdEJwQix3QkEwQkUsWUFqQ29CLENBa0NwQixVQUFZLENBM0JkLGNBK0JFLFNBQVUsQ0FDVixXQXRDZSxDQXVDZixnQkFBaUIsQ0FqQ25CLFlBcUNFLFlBakRpQixDQWtEakIsY0FqRGtCLENBa0RsQixjQUFlLENBQ2YsZ0NBQWlDLENBQ2pDLGdCQUFpQixDQXpDbkIscUJBNENFLFlBL0NZLENBR2Qsb0JBK0NFLGdCQUFpQixDQUNqQixjQTNEa0IsQ0E0RGxCLGNBQWUsQ0FDZixrQkFBbUIsQ0FsRHJCLCtCQXFERyxTQTFEYyxDQUtqQixrQkF5REUsU0FBVSxDQUNWLHlCQUEwQixDQUMxQixrQkFBbUIsQ0FDbkIsY0FBZSxDQUNmLG1CQUFvQixDQTdEdEIsc0JBZ0VHLFNBckVjLENBc0VkLGlCQUFrQixDQWpFckIsZUFzRUUsU0F4RWlCLENBeUVqQixnQkFBaUIsQ0FDakIsU0FBVSxDQUNWLGlCQUFrQixDQUNsQiwyQkFBNEIsQ0ExRTlCLG9CQThFRSxjQUFlLENBQ2YsWUFBYSxDQS9FZiwrQkFtRkksWUFBMkIsQ0FuRi9CLHdDQXVGSSxZQUFzQixDQXZGMUIsa0NBMkZJLGtCQUFtQixDQUNuQixTQUFVLENBNUZkLGdDQWtHSSxZQUEyQixDQWxHL0IseUNBc0dJLFlBQXNCLENBdEcxQixzQ0E0R0UsY0FBZSxDQUNmLGtCQUFtQixDQTdHckIsbUJBZ0hFLFNBckhlLENBS2pCLG1CQW1IRSxTQXZIZSxDQUlqQixhQXVIRSxZQUFhLENBSWYsaUJBQ0MsaUJBQWtCLENBQ2xCLGFBQWMsQ0FDZCxjQUFlLENBSGhCLGdDQU1FLGlCQUFrQixDQUNsQixLQUFNLENBQ04sTUFBTyxDQUNQLHlCQUE4QixDQUM5QixTQUFVLENBQ1YsYUFBYyxDQUNkLGlCQUFrQixDQVpwQix1Q0FlRywrQkE3SVcsQ0E4SVgsWUFBYSxDQWhCaEIsMENBb0JHLFlBQWEsQ0FDYixhQUFjLENBckJqQix5Q0F5QkcsaUJBQWtCLENBQ2xCLFVBQVcsQ0FDWCxpQkFBa0IsQ0FFbEIsNEJBQW9DLENBQXBDLCtCQUFvQyIsImZpbGUiOiJnYW50dC5zY3NzIn0= */";
+var css_248z = ".gantt .grid-background{fill:none}.gantt .grid-header{fill:#fff;stroke:#e0e0e0;stroke-width:1.4}.gantt .grid-row{fill:#fff}.gantt .grid-row:nth-child(2n){fill:#f5f5f5}.gantt .row-line{stroke:#ebeff2}.gantt .tick{stroke:#e0e0e0;stroke-width:.2}.gantt .tick.thick{stroke-width:.4}.gantt .today-highlight{fill:#fcf8e3;opacity:.5}.gantt .arrow{fill:none;stroke:#666;stroke-width:1.4}.gantt .bar{fill:#b8c2cc;stroke:#8d99a6;stroke-width:0;transition:stroke-width .3s ease;user-select:none}.gantt .bar-progress{fill:#a3a3ff}.gantt .bar-invalid{fill:transparent;stroke:#8d99a6;stroke-width:1;stroke-dasharray:5}.gantt .bar-invalid~.bar-label{fill:#555}.gantt .bar-label{fill:#fff;dominant-baseline:central;text-anchor:middle;font-size:12px;font-weight:lighter}.gantt .bar-label.big{fill:#555;text-anchor:start}.gantt .handle{fill:#ddd;cursor:ew-resize;opacity:0;transition:opacity .3s ease;visibility:hidden}.gantt .bar-wrapper{cursor:pointer;outline:none}.gantt .bar-wrapper:hover .bar{fill:#a9b5c1}.gantt .bar-wrapper:hover .bar-progress{fill:#8a8aff}.gantt .bar-wrapper:hover .handle{opacity:1;visibility:visible}.gantt .bar-wrapper.active .bar{fill:#a9b5c1}.gantt .bar-wrapper.active .bar-progress{fill:#8a8aff}.gantt .lower-text,.gantt .upper-text{text-anchor:middle;font-size:12px}.gantt .upper-text{fill:#555}.gantt .lower-text{fill:#333}.gantt .hide{display:none}.gantt-container{font-size:12px;overflow:auto;position:relative}.gantt-container .popup-wrapper{background:rgba(0,0,0,.8);border-radius:3px;color:#959da5;left:0;padding:0;position:absolute;top:0}.gantt-container .popup-wrapper .title{border-bottom:3px solid #a3a3ff;padding:10px}.gantt-container .popup-wrapper .subtitle{color:#dfe2e5;padding:10px}.gantt-container .popup-wrapper .pointer{border:5px solid transparent;border-top-color:rgba(0,0,0,.8);height:5px;margin:0 0 0 -5px;position:absolute}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZpbGU6Ly8vaG9tZS9jYXJsb3Mvc2l0ZXMvcmVhY3QtZnJhcHBlLWdhbnR0L25vZGVfbW9kdWxlcy9mcmFwcGUtZ2FudHQvc3JjL2dhbnR0LnNjc3MiLCJnYW50dC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQWFDLHdCQUNDLFNDWkYsQ0RjQyxvQkFDQyxTQUFBLENBQ0EsY0FoQmEsQ0FpQmIsZ0JDWkYsQ0RjQyxpQkFDQyxTQ1pGLENEY0MsK0JBQ0MsWUNaRixDRGNDLGlCQUNDLGNDWkYsQ0RjQyxhQUNDLGNBN0JhLENBOEJiLGVDWkYsQ0RhRSxtQkFDQyxlQ1hILENEY0Msd0JBQ0MsWUFqQ2EsQ0FrQ2IsVUNaRixDRGVDLGNBQ0MsU0FBQSxDQUNBLFdBdENXLENBdUNYLGdCQ2JGLENEZ0JDLFlBQ0MsWUFqRFUsQ0FrRFYsY0FqRFcsQ0FrRFgsY0FBQSxDQUNBLGdDQUFBLENBQ0EsZ0JDZEYsQ0RnQkMscUJBQ0MsWUNkRixDRGdCQyxvQkFDQyxnQkFBQSxDQUNBLGNBM0RXLENBNERYLGNBQUEsQ0FDQSxrQkNkRixDRGdCRSwrQkFDQyxTQ2RILENEaUJDLGtCQUNDLFNBQUEsQ0FDQSx5QkFBQSxDQUNBLGtCQUFBLENBQ0EsY0FBQSxDQUNBLG1CQ2ZGLENEaUJFLHNCQUNDLFNBckVVLENBc0VWLGlCQ2ZILENEbUJDLGVBQ0MsU0F4RWEsQ0F5RWIsZ0JBQUEsQ0FDQSxTQUFBLENBRUEsMkJBQUEsQ0FEQSxpQkNoQkYsQ0RvQkMsb0JBQ0MsY0FBQSxDQUNBLFlDbEJGLENEcUJHLCtCQUNDLFlDbkJKLENEc0JHLHdDQUNDLFlDcEJKLENEdUJHLGtDQUVDLFNBQUEsQ0FEQSxrQkNwQkosQ0QwQkcsZ0NBQ0MsWUN4QkosQ0QyQkcseUNBQ0MsWUN6QkosQ0Q4QkMsc0NBRUMsa0JBQUEsQ0FEQSxjQzNCRixDRDhCQyxtQkFDQyxTQzVCRixDRDhCQyxtQkFDQyxTQzVCRixDRCtCQyxhQUNDLFlDN0JGLENEaUNBLGlCQUdDLGNBQUEsQ0FEQSxhQUFBLENBREEsaUJDNUJELENEZ0NDLGdDQUlDLHlCQUFBLENBR0EsaUJBQUEsQ0FEQSxhQUFBLENBSEEsTUFBQSxDQUVBLFNBQUEsQ0FKQSxpQkFBQSxDQUNBLEtDekJGLENEZ0NFLHVDQUNDLCtCQUFBLENBQ0EsWUM5QkgsQ0RpQ0UsMENBRUMsYUFBQSxDQURBLFlDOUJILENEa0NFLHlDQUtDLDRCQUFBLENBQUEsK0JBQUEsQ0FIQSxVQUFBLENBQ0EsaUJBQUEsQ0FGQSxpQkM1QkgiLCJmaWxlIjoiZ2FudHQuc2NzcyJ9 */";
 styleInject(css_248z);
 
 const VIEW_MODE = {
@@ -2098,9 +2062,7 @@ function generate_id(task) {
 var Task = /*#__PURE__*/function () {
   function Task() {
     var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
     _classCallCheck(this, Task);
-
     this._dependencies = [];
     this.id = "";
     this.name = "";
@@ -2109,7 +2071,6 @@ var Task = /*#__PURE__*/function () {
     this._progress = 0.52;
     Object.assign(this, options);
   }
-
   _createClass(Task, [{
     key: "progress",
     get: function get() {
@@ -2136,94 +2097,72 @@ var Task = /*#__PURE__*/function () {
       }).filter(Boolean);
     }
   }]);
-
   return Task;
 }();
 
-var FrappeGantt = /*#__PURE__*/function (_Component) {
-  _inherits(FrappeGantt, _Component);
-
-  var _super = _createSuper(FrappeGantt);
-
-  function FrappeGantt(props) {
-    var _this;
-
-    _classCallCheck(this, FrappeGantt);
-
-    _this = _super.call(this, props);
-    _this._target = /*#__PURE__*/React.createRef();
-    _this._svg = /*#__PURE__*/React.createRef();
-    _this._gantt = null;
-    _this.state = {
-      viewMode: null,
-      tasks: []
+function FrappeGantt(_ref) {
+  var propsTasks = _ref.tasks,
+    propsViewMode = _ref.viewMode,
+    onClick = _ref.onClick,
+    onViewChange = _ref.onViewChange,
+    onProgressChange = _ref.onProgressChange,
+    onDateChange = _ref.onDateChange,
+    onTasksChange = _ref.onTasksChange;
+  var targetRef = React.useRef(null);
+  var svgRef = React.useRef(null);
+  var ganttRef = React.useRef(null);
+  var _React$useState = React__default['default'].useState(null),
+    _React$useState2 = _slicedToArray(_React$useState, 2),
+    viewMode = _React$useState2[0],
+    setViewMode = _React$useState2[1];
+  var _React$useState3 = React__default['default'].useState([]),
+    _React$useState4 = _slicedToArray(_React$useState3, 2),
+    tasks = _React$useState4[0],
+    setTasks = _React$useState4[1];
+  React.useEffect(function () {
+    setViewMode(propsViewMode);
+    setTasks(propsTasks.map(function (t) {
+      return new Task(t);
+    }));
+  }, [propsTasks, propsViewMode]);
+  React.useEffect(function () {
+    if (ganttRef.current) {
+      ganttRef.current.refresh(tasks);
+      ganttRef.current.change_view_mode(viewMode);
+    }
+  }, [tasks, viewMode]);
+  React.useEffect(function () {
+    ganttRef.current = new Gantt(svgRef.current, tasks, {
+      on_click: onClick,
+      on_view_change: onViewChange,
+      on_progress_change: function on_progress_change(task, progress) {
+        onProgressChange(task, progress);
+        onTasksChange(propsTasks);
+      },
+      on_date_change: function on_date_change(task, start, end) {
+        onDateChange(task, start, end);
+        onTasksChange(propsTasks);
+      }
+    });
+    if (ganttRef.current) {
+      ganttRef.current.change_view_mode(viewMode);
+    }
+    var midOfSvg = svgRef.current.clientWidth * 0.5;
+    targetRef.current.scrollLeft = midOfSvg;
+    return function () {
+      if (ganttRef.current) ;
     };
-    return _this;
-  }
-
-  _createClass(FrappeGantt, [{
-    key: "componentDidUpdate",
-    value: function componentDidUpdate() {
-      if (this._gantt) {
-        this._gantt.refresh(this.state.tasks);
-
-        this._gantt.change_view_mode(this.state.viewMode);
-      }
-    }
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      this._gantt = new Gantt(this._svg.current, this.state.tasks, {
-        on_click: this.props.onClick,
-        on_view_change: this.props.onViewChange,
-        on_progress_change: function on_progress_change(task, progress) {
-          _this2.props.onProgressChange(task, progress);
-
-          _this2.props.onTasksChange(_this2.props.tasks);
-        },
-        on_date_change: function on_date_change(task, start, end) {
-          _this2.props.onDateChange(task, start, end);
-
-          _this2.props.onTasksChange(_this2.props.tasks);
-        }
-      });
-
-      if (this._gantt) {
-        this._gantt.change_view_mode(this.state.viewMode);
-      }
-
-      var midOfSvg = this._svg.current.clientWidth * 0.5;
-      this._target.current.scrollLeft = midOfSvg;
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/React__default['default'].createElement("div", {
-        ref: this._target
-      }, /*#__PURE__*/React__default['default'].createElement("svg", {
-        ref: this._svg,
-        width: "100%",
-        height: "100%",
-        xmlns: "http://www.w3.org/2000/svg",
-        xmlnsXlink: "http://www.w3.org/1999/xlink"
-      }));
-    }
-  }], [{
-    key: "getDerivedStateFromProps",
-    value: function getDerivedStateFromProps(nextProps) {
-      return {
-        viewMode: nextProps.viewMode,
-        tasks: nextProps.tasks.map(function (t) {
-          return new Task(t);
-        })
-      };
-    }
-  }]);
-
-  return FrappeGantt;
-}(React.Component);
+  }, [propsTasks, viewMode, onTasksChange, onDateChange, onProgressChange, onClick, onViewChange]);
+  return /*#__PURE__*/React__default['default'].createElement("div", {
+    ref: targetRef
+  }, /*#__PURE__*/React__default['default'].createElement("svg", {
+    ref: svgRef,
+    width: "100%",
+    height: "100%",
+    xmlns: "http://www.w3.org/2000/svg",
+    xmlnsXlink: "http://www.w3.org/1999/xlink"
+  }));
+}
 
 var ViewMode = {
   "QuarterDay": "Quarter Day",
