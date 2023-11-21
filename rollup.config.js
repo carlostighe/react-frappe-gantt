@@ -5,7 +5,7 @@ import postcss from "rollup-plugin-postcss";
 import resolve from "rollup-plugin-node-resolve";
 
 export default {
-  input: "src/index.js",
+  input: "src/main.js",
   output: {
     file: pkg.main,
     format: "cjs",
@@ -15,7 +15,7 @@ export default {
     postcss({
       plugins: [],
       minimize: true,
-      sourceMap: "inline"
+      sourceMap: "inline",
     }),
     babel({
       exclude: "node_modules/**",
