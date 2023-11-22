@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from "react";
 
 import Gantt from "frappe-gantt";
+import { Moment } from "moment";
 import Task from "../lib/Task.js";
 
 const FrappeGantt = ({
-  tasks: propsTasks,
-  viewMode: propsViewMode,
+  tasks,
+  viewMode,
   onClick,
   onViewChange,
   onProgressChange,
@@ -20,9 +21,9 @@ const FrappeGantt = ({
   const [tasks, setTasks] = React.useState([]);
 
   useEffect(() => {
-    setViewMode(propsViewMode);
-    setTasks(propsTasks.map((t) => new Task(t)));
-  }, [propsTasks, propsViewMode]);
+    setViewMode(viewMode);
+    setTasks(tasks.map((t) => new Task(t)));
+  }, [tasks, viewMode]);
 
   useEffect(() => {
     if (ganttRef.current) {
@@ -37,11 +38,11 @@ const FrappeGantt = ({
       on_view_change: onViewChange,
       on_progress_change: (task, progress) => {
         onProgressChange(task, progress);
-        onTasksChange(propsTasks);
+        onTasksChange(tasks);
       },
       on_date_change: (task, start, end) => {
         onDateChange(task, start, end);
-        onTasksChange(propsTasks);
+        onTasksChange(tasks);
       },
     });
 
@@ -58,7 +59,7 @@ const FrappeGantt = ({
       }
     };
   }, [
-    propsTasks,
+    tasks,
     viewMode,
     onTasksChange,
     onDateChange,
